@@ -47,7 +47,7 @@ export default function App() {
                 <Spline scene="https://prod.spline.design/ezRAY9QD27kiJcur/scene.splinecode" style={{ width: '100%', height: '100%' }} />
               </div>
               <div className="relative z-10 p-6 md:p-8">
-                <p className="text-sm font-semibold text-emerald-700">Calendly for Friendships</p>
+                <p className="text-sm font-semibold text-emerald-700">LinkUp</p>
                 <h1 className="mt-1 text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">Let AI find 30–60 minute windows to link up</h1>
                 <p className="mt-2 max-w-2xl text-slate-700">Grab lunch, study for midterms, or hit the gym with friends based on free-busy from your calendars.</p>
                 <div className="mt-4 flex flex-wrap items-center gap-2">
