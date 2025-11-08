@@ -1,4 +1,5 @@
 import React from 'react';
+import { User, Calendar, Clock } from 'lucide-react';
 
 function MiniCalendar() {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -30,6 +31,12 @@ function MiniCalendar() {
 }
 
 function WhatsOn() {
+  const items = [
+    { id: 1, person: 'Ava Chen', title: 'Community Yoga', day: 'Saturday', time: '9:00 AM' },
+    { id: 2, person: 'Jordan Lee', title: 'Board Games Night', day: 'Sunday', time: '6:00 PM' },
+    { id: 3, person: 'Sam Patel', title: 'Sunset Run', day: 'Friday', time: '7:00 PM' },
+  ];
+
   return (
     <div className="rounded-2xl bg-white shadow-sm border border-slate-200 p-4">
       <div className="flex items-center justify-between">
@@ -37,14 +44,21 @@ function WhatsOn() {
         <button className="text-xs text-emerald-700 hover:underline">View all</button>
       </div>
       <div className="mt-3 space-y-3">
-        <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-          <div className="text-sm font-medium text-slate-800">Community Yoga</div>
-          <div className="text-xs text-slate-500">Saturday • 9:00 AM</div>
-        </div>
-        <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-          <div className="text-sm font-medium text-slate-800">Board Games Night</div>
-          <div className="text-xs text-slate-500">Sunday • 6:00 PM</div>
-        </div>
+        {items.map((it) => (
+          <div key={it.id} className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+            <div className="shrink-0 w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <User size={16} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="text-sm font-medium text-slate-800 truncate">{it.title}</div>
+              <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-600">
+                <span className="inline-flex items-center gap-1"><User size={14} />{it.person}</span>
+                <span className="inline-flex items-center gap-1"><Calendar size={14} />{it.day}</span>
+                <span className="inline-flex items-center gap-1"><Clock size={14} />{it.time}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
