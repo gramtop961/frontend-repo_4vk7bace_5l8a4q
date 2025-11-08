@@ -13,6 +13,7 @@ export default function App() {
       time: 'Today, 6:30 PM',
       tags: ['sports', 'outdoors', 'casual'],
       timeLeft: '2h left',
+      user: { name: 'Ava Chen' },
     },
     {
       id: 'p2',
@@ -21,6 +22,7 @@ export default function App() {
       time: 'Tomorrow, 10:00 AM',
       tags: ['coffee', 'social', 'chill'],
       timeLeft: '18h left',
+      user: { name: 'Jordan Lee' },
     },
     {
       id: 'p3',
@@ -29,6 +31,7 @@ export default function App() {
       time: 'Fri, 7:00 PM',
       tags: ['running', 'health', 'outdoors'],
       timeLeft: '2d left',
+      user: { name: 'Sam Patel' },
     },
   ]);
 
@@ -54,7 +57,6 @@ export default function App() {
           <Sidebar />
         </div>
         <div className="col-span-12 lg:col-span-6 space-y-6">
-          {/* Hero removed as requested; focus on proposals feed */}
           <div className="rounded-2xl bg-white shadow-sm border border-slate-100 p-6">
             <h2 className="text-xl font-semibold tracking-tight text-slate-800">Welcome to LinkUp</h2>
             <p className="mt-1 text-slate-500">Smart suggestions to meet, move, and make memories.</p>
