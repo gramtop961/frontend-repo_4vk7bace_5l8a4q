@@ -1,21 +1,27 @@
 import React from 'react';
 
 function MiniCalendar() {
-  const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
-  const today = new Date().getDay(); // 0 Sun..6 Sat
-  const idx = (d) => (d === 0 ? 6 : d - 1);
+  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
   return (
-    <div className="rounded-2xl border bg-white p-4 shadow-sm">
-      <h4 className="font-semibold">This week</h4>
-      <div className="mt-3 grid grid-cols-7 gap-2">
-        {days.map((d, i) => (
-          <div key={d} className={`flex flex-col items-center gap-2 rounded-xl p-2 ${i === idx(today) ? 'bg-emerald-50 border' : 'bg-slate-50 border'}`}>
-            <span className="text-xs font-semibold text-slate-700">{d}</span>
-            <div className="h-16 w-full rounded-lg bg-gradient-to-b from-emerald-100 to-blue-100 relative overflow-hidden">
-              <div className="absolute left-1 right-1 top-2 h-2 rounded bg-emerald-300/80" />
-              <div className="absolute left-1 right-1 top-6 h-2 rounded bg-blue-300/80" />
-              <div className="absolute left-1 right-1 top-10 h-2 rounded bg-amber-300/80" />
-            </div>
+    <div className="rounded-2xl bg-white shadow-sm border border-slate-200 p-4">
+      <div className="text-sm font-semibold text-slate-800">This week</div>
+      <div className="mt-3 grid grid-cols-7 gap-2 text-center">
+        {days.map((d) => (
+          <div key={d} className="text-xs text-slate-600">{d}</div>
+        ))}
+      </div>
+      <div className="mt-2 grid grid-cols-7 gap-2">
+        {[...Array(7)].map((_, i) => (
+          <div
+            key={i}
+            className="h-16 rounded-xl bg-slate-50 border border-slate-200 relative overflow-hidden"
+          >
+            {i === 2 && (
+              <div className="absolute left-1 right-1 top-1 h-6 rounded-md bg-gradient-to-r from-emerald-200 to-sky-200"></div>
+            )}
+            {i === 5 && (
+              <div className="absolute left-1 right-1 bottom-1 h-6 rounded-md bg-gradient-to-r from-emerald-200 to-sky-200"></div>
+            )}
           </div>
         ))}
       </div>
@@ -25,20 +31,19 @@ function MiniCalendar() {
 
 function WhatsOn() {
   return (
-    <div className="rounded-2xl border bg-white p-4 shadow-sm">
-      <h4 className="font-semibold">What’s on</h4>
-      <div className="mt-3 rounded-xl border p-3 bg-white">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="font-medium">Jamie</p>
-            <p className="text-sm text-slate-600">Pick-up basketball • 6 PM • Rec Center</p>
-          </div>
-          <button className="rounded-full bg-blue-600 text-white text-sm font-semibold px-3 py-2 hover:bg-blue-700">Join</button>
+    <div className="rounded-2xl bg-white shadow-sm border border-slate-200 p-4">
+      <div className="flex items-center justify-between">
+        <div className="text-sm font-semibold text-slate-800">What’s On</div>
+        <button className="text-xs text-emerald-700 hover:underline">View all</button>
+      </div>
+      <div className="mt-3 space-y-3">
+        <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+          <div className="text-sm font-medium text-slate-800">Community Yoga</div>
+          <div className="text-xs text-slate-500">Saturday • 9:00 AM</div>
         </div>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {['Sports','Social','Quick break'].map((tag) => (
-            <span key={tag} className="text-xs rounded-full bg-slate-50 border px-2 py-1 text-slate-700">{tag}</span>
-          ))}
+        <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+          <div className="text-sm font-medium text-slate-800">Board Games Night</div>
+          <div className="text-xs text-slate-500">Sunday • 6:00 PM</div>
         </div>
       </div>
     </div>
@@ -47,7 +52,7 @@ function WhatsOn() {
 
 export default function RightColumn() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       <MiniCalendar />
       <WhatsOn />
     </div>
